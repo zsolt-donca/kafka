@@ -61,6 +61,11 @@ ext {
 apply from: file('wrapper.gradle')
 apply from: file('scala.gradle')
 
+ScalaCompileOptions.metaClass.daemonServer = true
+ScalaCompileOptions.metaClass.fork = true
+ScalaCompileOptions.metaClass.useAnt = false
+ScalaCompileOptions.metaClass.useCompileDaemon = false
+
 if (new File('.git').exists()) {
   apply from: file('gradle/rat.gradle')
   rat {
